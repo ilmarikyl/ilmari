@@ -1,3 +1,99 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals", // import next/core-web-vitals to get vitals linter
+    "airbnb", // this loads the rules by airbnb. They can be overwritten by the rules in this file
+    "plugin:mdx/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "semi": ["error", "never"],
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // suppress errors for missing 'import React' in files
+    "react/react-in-jsx-scope": "off", // allow jsx syntax in js files (for next.js project)
+    "no-underscore-dangle": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "ignorePattern": "^(.*?)className(.*?)$" // lines get long with many tailwind classes
+      }
+    ],
+    "react/function-component-definition": "off",
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "no-shadow": 0,
+    "object-curly-newline": "off",
+    "no-plusplus": 0,
+    "import/no-unresolved": "off",
+    "react/jsx-one-expression-per-line": "off", // to avoid certain conflicts with prettier
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-wrap-multilines": [
+      "error",
+      { "declaration": false, "assignment": false }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["CustomLabel"],
+        "labelAttributes": ["inputLabel"],
+        "controlComponents": ["CustomInput"],
+        "assert": "htmlFor",
+        "depth": 3
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": "off",
+    "react/prop-types": [
+      1,
+      {
+        "skipUndeclared": true
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      { "ignorePropertyModificationsFor": ["draft"] }
+    ]
+  }
 }

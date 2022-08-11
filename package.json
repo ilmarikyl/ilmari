@@ -1,18 +1,49 @@
 {
+  "name": "ilmarikyl.github.io",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
-    "next": "12.1.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "@tailwindcss/typography": "^0.5.4",
+    "gray-matter": "^4.0.3",
+    "next": "12.2.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-remote": "^4.1.0",
+    "next-seo": "^5.5.0",
+    "next-themes": "^0.2.0",
+    "next-translate": "^1.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.0",
+    "react-spring": "^9.5.2",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
-    "eslint": "8.12.0",
-    "eslint-config-next": "12.1.4"
+    "autoprefixer": "^10.4.7",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "12.2.3",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-mdx": "^2.0.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.1.6"
   }
 }

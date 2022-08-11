@@ -1,0 +1,30 @@
+{
+  "--- COMMON TEXT ---": "----------------",
+
+  "software-developer": "Sovelluskehittäjä",
+  "language-technologist": "Kieliteknologi",
+  "ma-lang-tech": "Fil. maist. (kieliteknologia)",
+
+  "section-about-me": "Minä",
+  "section-cv": "CV",
+  "section-skills": "Taidot",
+  "section-works": "Työt",
+  
+  "btn-more-about": "Lisää minusta",
+  
+  "portrait-image-alt": "Kuva minusta",
+
+  "moderate-skills": "Kohtalainen taitotaso",
+  "good-skills": "Hyvä taitotaso",
+  "excellent-skills": "Erinomainen taitotaso",
+
+  "skill-general-skills-tools": "Yleiset kehittäjän taidot ja työkalut",
+  "skill-design-tools": "Suunnittelutyökalut",
+
+  "description-python": "Mukaan lukien frameworkit ja kirjastot, kuten transformers, NLTK, PyTorch ja Flask",
+  "description-html-javascript-css": "Mukaan lukien modernit JS-featuret ja esim. Tailwind CSS",
+  "description-react": "Mukaan lukien frameworkit ja kirjastot, kuten NextJS & Redux",
+  "description-docker": "Mukaan lukien Docker Compose",
+  "description-general-skills-tools": "Mukaan lukien esim. UNIX Shell, Git ja GitHub",
+  "description-design-tools": "Mukaan lukien Figma, Inkscape ja Adobe Photoshop"
+}

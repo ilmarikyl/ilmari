@@ -1,0 +1,30 @@
+{
+  "--- COMMON TEXT ---": "----------------",
+
+  "software-developer": "Software Developer",
+  "language-technologist": "Language Technologist",
+  "ma-lang-tech": "MA (Language Technology)",
+
+  "section-about-me": "About me",
+  "section-cv": "CV",
+  "section-skills": "Skills",
+  "section-works": "Works",
+
+  "btn-more-about": "More about me",
+
+  "portrait-image-alt": "Picture of me",
+
+  "moderate-skills": "Moderate skills",
+  "good-skills": "Good skills",
+  "excellent-skills": "Excellent skills",
+
+  "skill-general-skills-tools": "General developer skills and tools",
+  "skill-design-tools": "Design tools",
+  
+  "description-python": "Including frameworks and libraries, like transformers & NLTK, PyTorch & Flask",
+  "description-html-javascript-css": "Including modern JS features and e.g. Tailwind CSS",
+  "description-react": "Including frameworks and libraries, like NextJS & Redux",
+  "description-docker": "Including Docker Compose",
+  "description-general-skills-tools": "Including e.g. UNIX Shell, Git, GitHub",
+  "description-design-tools": "Including Figma, Inkscape & Adobe Photoshop"
+}
