@@ -2,11 +2,9 @@
  * @type {import('next').NextConfig}
  */
 
-const isProd = process.env.NODE_ENV === 'production'
 const nextTranslate = require('next-translate')
 
 const nextConfig = {
-  assetPrefix: isProd ? '/ilmari/' : '',
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
