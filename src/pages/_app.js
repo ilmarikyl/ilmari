@@ -1,6 +1,11 @@
+/* eslint-disable import/extensions */
 import '../styles/globals.css'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+
+import * as gtag from '../../lib/gtag'
 
 function MyApp({ Component, pageProps, router }) {
   const { locale } = router
@@ -36,6 +41,17 @@ function MyApp({ Component, pageProps, router }) {
       // ],
     },
   }
+
+  /**
+   * Analytics Setup
+   */
+  const gtagRouter = useRouter()
+
+  useEffect(() => {
+    const handleRouteChange = url => gtag.pageview(url)
+    gtagRouter.events.on('routeChangeComplete', handleRouteChange)
+    return () => gtagRouter.events.off('routeChangeComplete', handleRouteChange)
+  }, [gtagRouter.events])
 
   return (
     <ThemeProvider attribute="class">
