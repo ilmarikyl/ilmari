@@ -24,7 +24,7 @@ const Footer = () => (
     <FooterItem
       name="LinkedIn"
       logofile="linkedIn"
-      link="https://www.linkedin.com/in/ilmari-kylli%C3%A4inen-71a1a818a/"
+      link="https://www.linkedin.com/in/ilmari-kylliainen"
     />
     <FooterItem
       name="HuggingFace"
