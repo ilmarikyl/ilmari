@@ -26,5 +26,6 @@
   "description-react": "Mukaan lukien frameworkit ja kirjastot, kuten NextJS & Redux",
   "description-docker": "Mukaan lukien Docker Compose",
   "description-general-skills-tools": "Mukaan lukien esim. UNIX Shell, Git ja GitHub",
-  "description-design-tools": "Mukaan lukien Figma, Inkscape ja Adobe Photoshop"
+  "description-design-tools": "Mukaan lukien Figma, Inkscape ja Adobe Photoshop",
+  "description-aws-tech-stack": "Kokenut AWS-palveluiden, kuten S3, Lambda, SAM, CloudFront, GLUE ja CloudFormation, käyttäjä, sekä osaava pilvi-infrastruktuurin hallinnoija."
 }
