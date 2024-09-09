@@ -1,0 +1,26 @@
+{
+  "view-live": "View Live",
+  "view-source": "View Source",
+  "more-info": "More Info",
+  "less-info": "Less Info",
+  "semanttuli": {
+    "title": "Semanttuli",
+    "description": "Finnish version of the [Semantle](https://semantle.com) word guessing game. Also available as an Android app from [Google Play Store](https://play.google.com/store/apps/details?id=com.herokuapp.semanttuli.twa).",
+    "detailedInfo": "Semanttuli is a word-guessing game where players try to find a secret word by entering guesses. The game uses word2vec, an NLP technique, to compute semantic similarity between the guessed words and the target word. Instead of giving binary \"hot or cold\" feedback, Semanttuli provides a numerical score indicating how semantically close each guess is to the secret word, making for a unique and challenging word puzzle experience."
+  },
+  "portfolio": {
+    "title": "This portfolio",
+    "description": "My first project with NextJS, Tailwind CSS, MDX and Figma.",
+    "detailedInfo": "This portfolio showcases my skills and projects using modern web technologies. It was designed in Figma and implemented using Next.js for server-side rendering, Tailwind CSS for styling, and MDX for content management."
+  },
+  "semanttuli-legacy": {
+    "title": "Semanttuli (legacy version)",
+    "description": "Old version of Semanttuli. The user interface is made with raw JavaScript.",
+    "detailedInfo": "This old version of Semanttuli is a fork of an old version of [Semantle](https://semantle.com) created by [David Turner](https://games.novalis.org/). ***This version is no longer maintained***. A new version has since been developed, featuring significant improvements in the user interface, backend code, and word vector quality."
+  },
+  "revita": {
+    "title": "Revita",
+    "description": "For a year, I was part of the Toska development team, where I contributed as a frontend developer to Revita, an established language learning platform.",
+    "detailedInfo": "Revita is an AI-based application for language learning and supporting endangered languages. It can create exercises from user-uploaded text materials, provide precise feedback on user responses, and continuously assess the user's skill level."
+  }
+}

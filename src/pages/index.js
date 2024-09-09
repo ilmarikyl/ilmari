@@ -14,6 +14,8 @@ const PortraitImage = ({ t }) => (
       src="/images/self_portrait.png"
       alt={t('portrait-image-alt')}
       fill
+      // sizes="(max-width: 768px) 150px, 250px"
+      sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 400px"
       className="rounded-full backdrop-blur-xs dark:backdrop-blur-md"
       priority
     />
@@ -34,11 +36,11 @@ const TextSection = ({ t }) => (
 )
 
 const MoreInfoBtn = ({ t }) => (
-  <span className="mt-8 mb-2 self-center md:mt-14 md:mb-0">
+  <span className="mb-2 mt-8 self-center md:mb-0 md:mt-14">
     <Link href="/about" passHref>
       <button
         type="button"
-        className="block scale-100 rounded-xl bg-[hsl(350,89%,60%)] py-2 px-4 text-white duration-300 hover:scale-[1.05] hover:bg-red-600 dark:bg-indigo-500 dark:hover:bg-blue-600"
+        className="block scale-100 rounded-xl bg-[hsl(350,89%,60%)] px-4 py-2 text-white duration-300 hover:scale-[1.05] hover:bg-red-600 dark:bg-indigo-500 dark:hover:bg-blue-600"
       >
         {t('btn-more-about')}
       </button>

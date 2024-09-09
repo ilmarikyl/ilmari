@@ -8,8 +8,9 @@ const BackgroundAnimation = () => {
   const loaded = useLoaded()
 
   // eslint-disable-next-line prettier/prettier
-  const darkModeActive = loaded
-    && (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'))
+  const darkModeActive =
+    loaded &&
+    (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'))
 
   if (darkModeActive) {
     return <CloudWorms />

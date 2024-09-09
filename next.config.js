@@ -16,7 +16,7 @@ const nextConfig = {
   eslint: {
     // Warning: 'true' allows production builds to successfully complete even if
     // your project has ESLint errors.
-    ignoreDuringBuilds: true, // Set to true for now...
+    ignoreDuringBuilds: false,
   },
 }
 

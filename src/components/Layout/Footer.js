@@ -10,7 +10,7 @@ const FooterItem = ({ name, logofile, link }) => (
 )
 
 const Footer = () => (
-  <footer className="text-md flex w-full justify-center gap-x-12 rounded-lg py-2 px-2 text-base backdrop-blur-xs dark:backdrop-blur-md md:gap-x-16 md:pb-4 md:pt-8">
+  <footer className="text-md flex w-full justify-center gap-x-12 rounded-lg px-2 py-2 text-base backdrop-blur-xs dark:backdrop-blur-md md:gap-x-16 md:pb-4 md:pt-8">
     <FooterItem
       name="Email"
       logofile="email"

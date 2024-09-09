@@ -9,9 +9,12 @@
   "section-cv": "CV",
   "section-skills": "Taidot",
   "section-works": "Työt",
-  
+
   "btn-more-about": "Lisää minusta",
-  
+
+  "close-menu": "Avaa valikko",
+  "open-menu": "Sulje valikko",
+
   "portrait-image-alt": "Kuva minusta",
 
   "moderate-skills": "Kohtalainen taitotaso",

@@ -21,10 +21,19 @@ const NavbarLink = ({ href, locKey, closeMenu }) => {
         <a
           className={`w-full ${
             contentShowing
-              ? 'text-light-primary-hl dark:text-dark-primary-hl md:text-inherit dark:md:text-inherit'
+              ? 'md:text-inherit dark:md:text-inherit text-light-primary-hl dark:text-dark-primary-hl'
               : ''
           }`}
           onClick={closeMenu}
+          onKeyDown={e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              closeMenu()
+              router.push(href)
+            }
+          }}
+          role="link"
+          tabIndex="0"
         >
           <span className="flex flex-1 justify-center">{t(locKey)}</span>
           <span
@@ -40,15 +49,26 @@ const NavbarLink = ({ href, locKey, closeMenu }) => {
   )
 }
 
-const HamburgerButton = ({ hamburgerMenuOpen, setHamburgerMenuOpen }) => (
-  <button
-    type="button"
-    className="rounded-md outline-none focus:none focus:border-gray-400"
-    onClick={() => setHamburgerMenuOpen(!hamburgerMenuOpen)}
-  >
-    {hamburgerMenuOpen ? <Icon name="close" /> : <Icon name="hamburger" />}
-  </button>
-)
+const HamburgerButton = ({ hamburgerMenuOpen, setHamburgerMenuOpen }) => {
+  const { t } = useTranslation('common')
+
+  return (
+    <button
+      type="button"
+      className="mr-2 rounded-md outline-none focus:ring-2 focus:ring-gray-400"
+      onClick={() => setHamburgerMenuOpen(!hamburgerMenuOpen)}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          setHamburgerMenuOpen(!hamburgerMenuOpen)
+        }
+      }}
+      aria-expanded={hamburgerMenuOpen}
+      aria-label={hamburgerMenuOpen ? t('close-menu') : t('open-menu')}
+    >
+      {hamburgerMenuOpen ? <Icon name="close" /> : <Icon name="hamburger" />}
+    </button>
+  )
+}
 
 const Navbar = () => {
   const { theme, setTheme, systemTheme } = useTheme()
@@ -122,13 +142,13 @@ const Navbar = () => {
                   closeMenu={closeMenu}
                 />
                 <NavbarLink
-                  href="/skills"
-                  locKey="section-skills"
+                  href="/works"
+                  locKey="section-works"
                   closeMenu={closeMenu}
                 />
                 <NavbarLink
-                  href="/works"
-                  locKey="section-works"
+                  href="/skills"
+                  locKey="section-skills"
                   closeMenu={closeMenu}
                 />
               </ul>

@@ -12,6 +12,9 @@
 
   "btn-more-about": "More about me",
 
+  "close-menu": "Close menu",
+  "open-menu": "Open menu",
+
   "portrait-image-alt": "Picture of me",
 
   "moderate-skills": "Moderate skills",
@@ -20,7 +23,7 @@
 
   "skill-general-skills-tools": "General developer skills and tools",
   "skill-design-tools": "Design tools",
-  
+
   "description-python": "Including frameworks and libraries, like transformers, NLTK, PyTorch & Flask",
   "description-html-javascript-css": "Including modern JS features and e.g. Tailwind CSS",
   "description-react": "Including frameworks and libraries, like NextJS & Redux",

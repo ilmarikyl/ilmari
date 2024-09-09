@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Stack from '../components/Stack'
 import MDXContentWrapper from '../components/MDXContentWrapper'
 import SkillProgress from '../components/SkillProgress'
+import ProjectsSection from '../components/ProjectsSection'
 import { H1, H2, H3, P, A, LI } from '../components/MDXComponents'
 
 // TODO
@@ -22,6 +23,7 @@ function PostPage({ post }) {
         components={{
           Stack,
           SkillProgress,
+          ProjectsSection,
           h1: H1,
           h2: H2,
           h3: H3,

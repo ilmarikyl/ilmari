@@ -1,0 +1,26 @@
+{
+  "view-live": "Live-applikaatio",
+  "view-source": "Lähdekoodi",
+  "more-info": "Lisätietoja",
+  "less-info": "Piilota tiedot",
+  "semanttuli": {
+    "title": "Semanttuli",
+    "description": "Suomenkielinen versio [Semantle](https://semantle.com)-sanapelistä. Saatavilla myös Android-sovelluksena [Google Play Storesta](https://play.google.com/store/apps/details?id=com.herokuapp.semanttuli.twa).",
+    "detailedInfo": "Semanttuli on sanapeli, jossa pelaaja yrittää löytää salaisen sanan syöttämällä arvauksia. Peli hyödyntää word2vec-tekniikkaa sanojen semanttisen samankaltaisuuden laskemisessa. Binääristen, \"kylmää-kuumaa \"-palautteiden sijaan Semanttuli antaa arvauksille numeeriset, samankaltaisuutta kuvaavat pisteet."
+  },
+  "portfolio": {
+    "title": "Tämä portfolio",
+    "description": "Ensimmäinen projektini NextJS:llä, Tailwind CSS:llä, MDX:llä ja Figmalla.",
+    "detailedInfo": "Tämä portfolio esittelee taitojani ja projektejani käyttäen moderneja web-teknologioita. Se on suunniteltu Figmassa ja toteutettu käyttäen Next.js:ää, Tailwind CSS:ää ja MDX:ää."
+  },
+  "semanttuli-legacy": {
+    "title": "Semanttuli (legacy-versio)",
+    "description": "Semanttulin vanha versio. Käyttöliittymä on tehty raa'alla JavaScriptillä.",
+    "detailedInfo": "Semanttulin vanha versio, joka on [David Turnerin](https://games.novalis.org/) luoman [Semantlen](https://semantle.com) vanhan version haara (fork). ***Tätä versiota ei enää ylläpidetä***. Uusi versio sisältää merkittäviä parannuksia käyttöliittymään, backend-koodin ja sanavektorien laatuun."
+  },
+  "revita": {
+    "title": "Revita",
+    "description": "Työskentelin vuoden ajan osana [Toska-kehitystiimiä](https://toska.dev). Työstin frontend-kehittäjänä Revita-kielenoppimisalustaa.",
+    "detailedInfo": "Revita on tekoälyyn pohjautuva sovellus kielten opiskeluun ja uhanalaisten kielten tukemiseen. Se osaa luoda tehtäviä käyttäjän itse lataamista tekstimateriaaleista, antaa tarkkaa palautetta käyttäjän vastauksista, ja se arvioi jatkuvasti käyttäjän taitotasoa."
+  }
+}

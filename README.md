@@ -4,6 +4,6 @@ Repository for my personal portfolio site at [https://ilmari.vercel.app/](https:
 
 ## Setup development
 
-Run locally with  `npm run dev`.
+Run locally with `npm run dev`.
 
 Build production version with `npm build`.

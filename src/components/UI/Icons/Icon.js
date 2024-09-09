@@ -52,5 +52,5 @@ export default function Icon({ name, hoverGrow, themeIcon, big }) {
 
   const icon = icons[name]
 
-  return <div className={`${extraClasses} overflow-visible p-2 `}>{icon}</div>
+  return <div className={`${extraClasses} overflow-visible p-2`}>{icon}</div>
 }

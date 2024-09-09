@@ -25,15 +25,15 @@ const Progress = ({ value = 0, steps }) => {
     from: { width: '0%' },
   })
 
-  // eslint-disable-next-line prettier/prettier
-  const stepIndicators = steps
-    && [...Array(steps)].map((v, i) => (
+  const stepIndicators =
+    steps &&
+    [...Array(steps)].map((v, i) => (
       <StepIndicator key={i} left={`${(i + 1) * stepSize}%`} />
     ))
 
   return (
     <div
-      className=" relative h-[10px] overflow-hidden rounded bg-[#E2E8F0] dark:bg-indigo-200 "
+      className="relative h-[10px] overflow-hidden rounded bg-[#E2E8F0] dark:bg-indigo-200"
       ref={ref}
     >
       <Bar barStyle={barStyle} />

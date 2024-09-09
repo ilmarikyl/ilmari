@@ -1,13 +1,13 @@
 const H1 = ({ children }) => (
-  <h1 className="mb-8 text-3xl font-semibold md:text-4xl">{children}</h1>
+  <h1 className="mb-2 text-3xl font-semibold md:text-4xl">{children}</h1>
 )
 
 const H2 = ({ children }) => (
-  <h2 className="mb-2 mt-8 text-xl font-semibold md:text-2xl">{children}</h2>
+  <h2 className="mb-1 mt-8 text-xl font-semibold md:text-2xl">{children}</h2>
 )
 
 const H3 = ({ children }) => (
-  <h3 className="text-md mb-1 mt-3 ml-2 font-medium md:text-lg">{children}</h3>
+  <h3 className="text-md mb-1 ml-2 mt-3 font-medium md:text-lg">{children}</h3>
 )
 
 const P = ({ children }) => (
