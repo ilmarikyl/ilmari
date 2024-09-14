@@ -19,7 +19,7 @@ const projects = [
     technologies: ['Word2vec', 'JavaScript', 'Python', 'Flask', 'MongoDB'],
     sourceUrl: 'https://github.com/ilmarikyl/semanttuli-legacy',
     liveUrl: 'https://semanttuli-legacy.fly.dev',
-    darkGradientStart: '#311c40',
+    darkGradientStart: '#0f291b',
   },
   {
     key: 'revita',
@@ -27,7 +27,7 @@ const projects = [
     technologies: ['React', 'Redux', 'Python', 'MongoDB'],
     sourceUrl: 'https://github.com/UniversityOfHelsinkiCS/mobvita',
     liveUrl: 'https://revita.cs.helsinki.fi',
-    darkGradientStart: '#752851',
+    darkGradientStart: '#4b193b',
   },
 ]
 
