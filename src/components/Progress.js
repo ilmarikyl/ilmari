@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 const Bar = ({ barStyle }) => (
   <animated.div
     style={barStyle}
-    className="dark:from-green-700 dark:via-green-600 dark:to-green-700 animate-gradient h-full w-full bg-gradient-to-r from-red-400 via-red-500 to-red-400 bg-[length:200%_100%]"
+    className="animate-gradient h-full w-full bg-gradient-to-r from-red-400 via-red-500 to-red-400 bg-[length:200%_100%] dark:from-green-700 dark:via-green-600 dark:to-green-700"
   />
 )
 
