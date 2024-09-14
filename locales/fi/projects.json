@@ -15,7 +15,7 @@
   },
   "semanttuli-legacy": {
     "title": "Semanttuli (legacy-versio)",
-    "description": "Semanttulin vanha versio. Käyttöliittymä on tehty raa'alla JavaScriptillä.",
+    "description": "Semanttulin vanha versio. Käyttöliittymä on tehty raa'alla HTML:llä, JavaScriptillä ja CSS:llä.",
     "detailedInfo": "Semanttulin vanha versio, joka on [David Turnerin](https://games.novalis.org/) luoman [Semantlen](https://semantle.com) vanhan version haara (fork). ***Tätä versiota ei enää ylläpidetä***. Uusi versio sisältää merkittäviä parannuksia käyttöliittymään, backend-koodin ja sanavektorien laatuun."
   },
   "revita": {

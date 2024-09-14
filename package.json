@@ -13,7 +13,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "gray-matter": "^4.0.3",
-    "next": "14.2.8",
+    "next": "14.2.11",
     "next-mdx-remote": "^5.0.0",
     "next-seo": "^6.6.0",
     "next-themes": "^0.3.0",
@@ -31,7 +31,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "14.2.8",
+    "eslint-config-next": "14.2.11",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.30.0",
@@ -39,12 +39,12 @@
     "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "next-translate-plugin": "^2.6.2",
     "postcss": "^8.4.45",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^3.4.11"
   }
 }

@@ -15,12 +15,12 @@
   },
   "semanttuli-legacy": {
     "title": "Semanttuli (legacy version)",
-    "description": "Old version of Semanttuli. The user interface is made with raw JavaScript.",
+    "description": "Old version of Semanttuli. The user interface is made with raw HMTL, JavaScript and CSS.",
     "detailedInfo": "This old version of Semanttuli is a fork of an old version of [Semantle](https://semantle.com) created by [David Turner](https://games.novalis.org/). ***This version is no longer maintained***. A new version has since been developed, featuring significant improvements in the user interface, backend code, and word vector quality."
   },
   "revita": {
     "title": "Revita",
-    "description": "For a year, I was part of the Toska development team, where I contributed as a frontend developer to Revita, an established language learning platform.",
+    "description": "For a year, I was part of the [Toska](https://toska.dev) development team, where I contributed as a frontend developer to Revita, an established language learning platform.",
     "detailedInfo": "Revita is an AI-based application for language learning and supporting endangered languages. It can create exercises from user-uploaded text materials, provide precise feedback on user responses, and continuously assess the user's skill level."
   }
 }

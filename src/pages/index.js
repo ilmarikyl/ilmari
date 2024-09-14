@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import Link from 'next/link'
+import { MdArrowForward } from 'react-icons/md'
 import Layout from '../components/Layout/Layout'
 import BackgroundAnimation from '../components/BackgroundAnimation'
 
@@ -40,9 +41,12 @@ const MoreInfoBtn = ({ t }) => (
     <Link href="/about" passHref>
       <button
         type="button"
-        className="block scale-100 rounded-xl bg-[hsl(350,89%,60%)] px-4 py-2 text-white duration-300 hover:scale-[1.05] hover:bg-red-600 dark:bg-indigo-500 dark:hover:bg-blue-600"
+        className="dark:from-green-600 dark:to-green-700 dark:hover:from-green-700 dark:hover:to-green-800 dark:focus:ring-green-800 group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-red-500 to-red-600 p-0.5 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:from-red-600 hover:to-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-gradient-to-br"
       >
-        {t('btn-more-about')}
+        <span className="relative flex items-center rounded-md px-5 py-2.5 transition-all duration-200 ease-in-out group-hover:bg-opacity-0">
+          <span className="mr-2">{t('btn-more-about')}</span>
+          <MdArrowForward className="h-5 w-5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
+        </span>
       </button>
     </Link>
   </span>
