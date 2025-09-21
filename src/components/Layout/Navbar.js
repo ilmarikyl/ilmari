@@ -17,33 +17,32 @@ const NavbarLink = ({ href, locKey, closeMenu }) => {
 
   return (
     <li className="w-500 group rounded-lg bg-black bg-opacity-5 p-2 transition duration-300 hover:text-light-primary-hl dark:bg-white dark:bg-opacity-5 dark:hover:text-dark-primary-hl md:bg-opacity-0 dark:md:bg-opacity-0">
-      <Link href={href} passHref legacyBehavior>
-        <a
-          className={`w-full ${
+      <Link
+        href={href}
+        className={`w-full ${
+          contentShowing
+            ? 'md:text-inherit dark:md:text-inherit text-light-primary-hl dark:text-dark-primary-hl'
+            : ''
+        }`}
+        onClick={closeMenu}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            closeMenu()
+            router.push(href)
+          }
+        }}
+        role="link"
+        tabIndex="0"
+      >
+        <span className="flex flex-1 justify-center">{t(locKey)}</span>
+        <span
+          className={`hidden h-0.5 bg-light-primary-hl dark:bg-dark-primary-hl md:block ${
             contentShowing
-              ? 'md:text-inherit dark:md:text-inherit text-light-primary-hl dark:text-dark-primary-hl'
-              : ''
+              ? 'max-w-full'
+              : 'max-w-0 transition-all duration-500 group-hover:max-w-full'
           }`}
-          onClick={closeMenu}
-          onKeyDown={e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault()
-              closeMenu()
-              router.push(href)
-            }
-          }}
-          role="link"
-          tabIndex="0"
-        >
-          <span className="flex flex-1 justify-center">{t(locKey)}</span>
-          <span
-            className={`hidden h-0.5 bg-light-primary-hl dark:bg-dark-primary-hl md:block ${
-              contentShowing
-                ? 'max-w-full'
-                : 'max-w-0 transition-all duration-500 group-hover:max-w-full'
-            }`}
-          />
-        </a>
+        />
       </Link>
     </li>
   )
@@ -101,10 +100,8 @@ const Navbar = () => {
       <div className="mx-auto justify-between px-0 text-lg md:flex md:items-center md:px-8 lg:max-w-7xl">
         <div>
           <div className="flex items-center justify-between py-5 md:block md:py-10">
-            <Link href="/" passHref legacyBehavior>
-              <a>
-                <Icon big name="logo" />
-              </a>
+            <Link href="/">
+              <Icon big name="logo" />
             </Link>
 
             {/* MOBILE */}

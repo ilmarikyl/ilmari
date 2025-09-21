@@ -16,10 +16,8 @@ const LangButton = () => {
   }
 
   return (
-    <Link href={router.asPath} locale={oppositeLocale} passHref legacyBehavior>
-      <a title={title}>
-        <Icon name={oppositeIconName} big hoverGrow />
-      </a>
+    <Link href={router.asPath} locale={oppositeLocale} title={title}>
+      <Icon name={oppositeIconName} big hoverGrow />
     </Link>
   )
 }
