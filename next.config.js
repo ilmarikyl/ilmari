@@ -28,4 +28,3 @@ const nextConfig = {
 }
 
 module.exports = nextTranslate(nextConfig)
-A
