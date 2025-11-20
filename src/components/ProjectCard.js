@@ -63,7 +63,7 @@ const ProjectCard = ({ project }) => {
           {project.liveUrl && (
             <Link
               href={project.liveUrl}
-              className="inline-flex items-center rounded bg-light-primary-hl px-2 py-1 text-xs font-bold text-white transition duration-300 hover:bg-red-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+              className="inline-flex items-center rounded bg-light-primary-hl px-2 py-1 text-xs text-white transition duration-300 hover:bg-red-600 dark:bg-blue-600 dark:hover:bg-blue-700"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,7 +76,7 @@ const ProjectCard = ({ project }) => {
         <div className="flex items-center justify-between">
           <Link
             href={project.sourceUrl}
-            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs font-bold text-white transition duration-300 hover:bg-gray-700"
+            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ const ProjectCard = ({ project }) => {
           </Link>
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs font-bold text-white transition duration-300 hover:bg-gray-700"
+            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
             aria-expanded={showDetails}
             aria-controls={`details-${project.key}`}
             type="button"
