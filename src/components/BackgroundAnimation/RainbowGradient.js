@@ -1,10 +1,18 @@
 import s from '../../styles/rainbow.module.css'
 
 const RainbowGradient = () => {
-  // Create 25 rainbow stripes
-  const rainbows = Array.from({ length: 25 }, (_, i) => (
-    <div key={i} className={`${s.rainbow} ${s[`rainbow${i + 1}`]}`} />
-  ))
+  // Create rainbow stripes - fewer on mobile for better performance
+  const rainbows = Array.from({ length: 25 }, (_, i) => {
+    const rainbowClass = `rainbow${i + 1}`
+    const classes = [s.rainbow, s[rainbowClass]]
+    
+    // Hide stripes 9-25 on mobile for better performance
+    if (i >= 8) {
+      classes.push(s.desktopOnly)
+    }
+    
+    return <div key={i} className={classes.join(' ')} />
+  })
 
   return (
     <div className={s.container}>

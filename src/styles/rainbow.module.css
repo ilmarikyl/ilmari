@@ -11,6 +11,17 @@
   z-index: -1;
 }
 
+/* Performance optimization: hide most stripes on mobile */
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopOnly {
+    display: block;
+  }
+}
+
 .rainbow {
   height: 100vh;
   width: 0;
