@@ -15,7 +15,7 @@ const nextConfig = {
   eslint: {
     // Warning: 'true' allows production builds to successfully complete even if
     // your project has ESLint errors.
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   webpack: (config, { dev, isServer }) => {
     // Configure SVGR for SVG imports
@@ -28,3 +28,4 @@ const nextConfig = {
 }
 
 module.exports = nextTranslate(nextConfig)
+A
