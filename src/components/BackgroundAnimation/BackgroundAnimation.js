@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 import useLoaded from '../../hooks/useLoaded'
-import CloudWorms from './CloudWorms'
+import RainbowGradient from './RainbowGradient'
 import AshDots from './AshDots'
 
 const BackgroundAnimation = () => {
@@ -13,7 +13,7 @@ const BackgroundAnimation = () => {
     (theme === 'dark' || (theme === 'system' && systemTheme === 'dark'))
 
   if (darkModeActive) {
-    return <CloudWorms />
+    return <RainbowGradient />
   }
 
   return <AshDots />

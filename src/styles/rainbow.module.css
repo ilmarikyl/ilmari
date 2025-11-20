@@ -1,0 +1,255 @@
+/* Rainbow gradient animation - optimized for dark theme */
+/* Inspired by @SylvainGarnot's CodePen: https://codepen.io/sylvaingarnot/pen/OJqoXaR */
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.rainbow {
+  height: 100vh;
+  width: 0;
+  top: 0;
+  position: absolute;
+  transform: rotate(10deg);
+  transform-origin: top right;
+  z-index: -1;
+}
+
+/* Generate individual rainbow stripes with randomized color orders */
+.rainbow1 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 43.1s linear infinite;
+  animation-delay: -1.8s;
+}
+
+.rainbow2 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 41.2s linear infinite;
+  animation-delay: -3.6s;
+}
+
+.rainbow3 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 39.3s linear infinite;
+  animation-delay: -5.4s;
+}
+
+.rainbow4 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 37.4s linear infinite;
+  animation-delay: -7.2s;
+}
+
+.rainbow5 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 35.5s linear infinite;
+  animation-delay: -9s;
+}
+
+.rainbow6 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 43.6s linear infinite;
+  animation-delay: -10.8s;
+}
+
+.rainbow7 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 41.7s linear infinite;
+  animation-delay: -12.6s;
+}
+
+.rainbow8 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 39.8s linear infinite;
+  animation-delay: -14.4s;
+}
+
+.rainbow9 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 37.9s linear infinite;
+  animation-delay: -16.2s;
+}
+
+.rainbow10 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 36s linear infinite;
+  animation-delay: -18s;
+}
+
+.rainbow11 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 44.1s linear infinite;
+  animation-delay: -19.8s;
+}
+
+.rainbow12 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 42.2s linear infinite;
+  animation-delay: -21.6s;
+}
+
+.rainbow13 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 40.3s linear infinite;
+  animation-delay: -23.4s;
+}
+
+.rainbow14 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 38.4s linear infinite;
+  animation-delay: -25.2s;
+}
+
+.rainbow15 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 36.5s linear infinite;
+  animation-delay: -27s;
+}
+
+.rainbow16 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 44.6s linear infinite;
+  animation-delay: -28.8s;
+}
+
+.rainbow17 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 42.7s linear infinite;
+  animation-delay: -30.6s;
+}
+
+.rainbow18 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 40.8s linear infinite;
+  animation-delay: -32.4s;
+}
+
+.rainbow19 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 38.9s linear infinite;
+  animation-delay: -34.2s;
+}
+
+.rainbow20 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 37s linear infinite;
+  animation-delay: -36s;
+}
+
+.rainbow21 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 45.1s linear infinite;
+  animation-delay: -37.8s;
+}
+
+.rainbow22 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 43.2s linear infinite;
+  animation-delay: -39.6s;
+}
+
+.rainbow23 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(34, 197, 94), 0 0 50px 25px rgb(168, 85, 247),
+    50px 0 50px 25px rgb(59, 130, 246), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 41.3s linear infinite;
+  animation-delay: -41.4s;
+}
+
+.rainbow24 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(59, 130, 246), 0 0 50px 25px rgb(34, 197, 94),
+    50px 0 50px 25px rgb(168, 85, 247), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 39.4s linear infinite;
+  animation-delay: -43.2s;
+}
+
+.rainbow25 {
+  box-shadow: -130px 0 80px 40px rgba(15, 23, 42, 0.8),
+    -50px 0 50px 25px rgb(168, 85, 247), 0 0 50px 25px rgb(59, 130, 246),
+    50px 0 50px 25px rgb(34, 197, 94), 130px 0 80px 40px rgba(15, 23, 42, 0.8);
+  animation: slide 37.5s linear infinite;
+  animation-delay: -45s;
+}
+
+@keyframes slide {
+  from {
+    right: -25vw;
+  }
+  to {
+    right: 125vw;
+  }
+}
+
+/* Horizontal glow effect */
+.h {
+  box-shadow: 0 0 50vh 40vh rgba(15, 23, 42, 0.9);
+  width: 100vw;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Vertical glow effect */
+.v {
+  box-shadow: 0 0 35vw 25vw rgba(15, 23, 42, 0.9);
+  width: 0;
+  height: 100vh;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
