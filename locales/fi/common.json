@@ -30,5 +30,12 @@
   "description-docker": "Mukaan lukien Docker Compose",
   "description-general-skills-tools": "Mukaan lukien esim. UNIX Shell, Git ja GitHub",
   "description-design-tools": "Mukaan lukien Figma, Inkscape ja Adobe Photoshop",
-  "description-aws-tech-stack": "Kokenut AWS-palveluiden, kuten S3, Lambda, SAM, CloudFront, GLUE ja CloudFormation, käyttäjä, sekä osaava pilvi-infrastruktuurin hallinnoija."
+  "description-aws-tech-stack": "Kokenut AWS-palveluiden, kuten S3, Lambda, SAM, CloudFront, GLUE ja CloudFormation, käyttäjä, sekä osaava pilvi-infrastruktuurin hallinnoija.",
+
+  "image-modal": {
+    "scroll-to-zoom": "Zoomaa vierittämällä",
+    "drag-to-pan": "Panoroi vetämällä",
+    "pinch-to-zoom": "Zoomaa nipistämällä",
+    "click-outside-to-close": "Sulje klikkaamalla ulkopuolta"
+  }
 }

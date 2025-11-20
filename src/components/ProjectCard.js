@@ -5,10 +5,12 @@ import useTranslation from 'next-translate/useTranslation'
 import { FaChevronDown, FaChevronUp, FaExternalLinkAlt } from 'react-icons/fa'
 import MarkdownDescription from './MarkdownDescription'
 import TechnologyIcon from './TechnologyIcon'
+import ImageModal from './ImageModal'
 
 const ProjectCard = ({ project }) => {
   const { t } = useTranslation('projects')
   const [showDetails, setShowDetails] = useState(false)
+  const [showImageModal, setShowImageModal] = useState(false)
   const [height, setHeight] = useState(0)
   const contentRef = useRef(null)
 
@@ -37,7 +39,19 @@ const ProjectCard = ({ project }) => {
       className="flex flex-col overflow-hidden rounded-lg bg-gradient-to-br from-light-bg-start to-light-bg-end shadow-lg dark:from-[var(--dark-from)] dark:to-dark-bg-end"
       style={cardStyle}
     >
-      <div className="relative h-48">
+      <div
+        className="relative h-48 cursor-pointer"
+        onClick={() => setShowImageModal(true)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            setShowImageModal(true)
+          }
+        }}
+        aria-label={t('view-image')}
+      >
         <Image
           src={project.image}
           alt={t(`${project.key}.title`)}
@@ -113,6 +127,12 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
       </div>
+      <ImageModal
+        isOpen={showImageModal}
+        onClose={() => setShowImageModal(false)}
+        imageSrc={project.image}
+        imageAlt={t(`${project.key}.title`)}
+      />
     </div>
   )
 }

@@ -30,5 +30,12 @@
   "description-docker": "Including Docker Compose",
   "description-general-skills-tools": "Including e.g. UNIX Shell, Git, GitHub",
   "description-design-tools": "Including Figma, Inkscape & Adobe Photoshop",
-  "description-aws-tech-stack": "Experienced with AWS services like S3, Lambda, SAM, CloudFront, GLUE, and CloudFormation, adept at building and managing cloud infrastructure."
+  "description-aws-tech-stack": "Experienced with AWS services like S3, Lambda, SAM, CloudFront, GLUE, and CloudFormation, adept at building and managing cloud infrastructure.",
+
+  "image-modal": {
+    "scroll-to-zoom": "Scroll to zoom",
+    "drag-to-pan": "Drag to pan",
+    "pinch-to-zoom": "Pinch to zoom",
+    "click-outside-to-close": "Click outside to close"
+  }
 }

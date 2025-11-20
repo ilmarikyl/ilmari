@@ -5,12 +5,12 @@ const RainbowGradient = () => {
   const rainbows = Array.from({ length: 25 }, (_, i) => {
     const rainbowClass = `rainbow${i + 1}`
     const classes = [s.rainbow, s[rainbowClass]]
-    
+
     // Hide stripes 9-25 on mobile for better performance
     if (i >= 8) {
       classes.push(s.desktopOnly)
     }
-    
+
     return <div key={i} className={classes.join(' ')} />
   })
 
