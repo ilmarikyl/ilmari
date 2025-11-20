@@ -25,7 +25,7 @@ const PortraitImage = ({ t }) => (
 
 const TextSection = ({ t }) => (
   <div className="flex flex-col justify-center">
-    <h1 className="text-center font-Montserrat text-4xl backdrop-blur-xs dark:backdrop-blur-md md:text-left md:text-5xl">
+    <h1 className="text-center text-4xl backdrop-blur-xs dark:backdrop-blur-md md:text-left md:text-5xl">
       Ilmari Kylliäinen
     </h1>
     <span className="mt-5 max-w-[360px] self-center text-center backdrop-blur-xs dark:backdrop-blur-md md:self-start md:text-left">

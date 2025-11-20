@@ -8,39 +8,16 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '.5rem',
-        md: '2rem',
-      },
-    },
+    container: { center: true, padding: { DEFAULT: '.5rem', md: '2rem' } },
     typography: theme => ({}),
     extend: {
-      typography: theme => ({
-        dark: {
-          css: {
-            color: 'white',
-          },
-        },
-      }),
-      fontFamily: {
-        Montserrat: ['Montserrat', 'sans-serif'],
-        Poppins: ['Poppins', 'sans-serif'],
-      },
-      backdropBlur: {
-        xs: '2px',
-      },
+      typography: theme => ({ dark: { css: { color: 'white' } } }),
+      fontFamily: { Fraunces: ['Fraunces', 'serif'] },
+      backdropBlur: { xs: '2px' },
     },
     colors: {
-      'light-bg': {
-        start: 'hsl(216,33%,97%)',
-        end: 'hsl(216,33%,79%)',
-      },
-      'dark-bg': {
-        start: 'hsl(219,58%,10%)',
-        end: 'hsl(218,58%,38%)',
-      },
+      'light-bg': { start: 'hsl(216,33%,97%)', end: 'hsl(216,33%,79%)' },
+      'dark-bg': { start: 'hsl(219,58%,10%)', end: 'hsl(218,58%,38%)' },
 
       'light-primary-hl': colors.red['500'],
       'dark-primary-hl': colors.yellow['200'],
@@ -57,8 +34,6 @@ module.exports = {
       green: colors.green,
     },
   },
-  variants: {
-    typography: ['dark'],
-  },
+  variants: { typography: ['dark'] },
   plugins: [require('@tailwindcss/typography')],
 }
