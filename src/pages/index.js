@@ -12,7 +12,7 @@ function formatTitle(title) {
 const PortraitImage = ({ t }) => (
   <div className="relative mt-2 flex h-[150px] w-[150px] items-center justify-center self-center md:mt-0 md:h-[250px] md:w-[250px]">
     <Image
-      src="/images/self_portrait_drawing_dark2.webp"
+      src="/images/self_portrait.png"
       alt={t('portrait-image-alt')}
       fill
       // sizes="(max-width: 768px) 150px, 250px"
