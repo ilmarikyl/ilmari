@@ -1,5 +1,31 @@
 const projects = [
   {
+    key: 'ratepad',
+    image: '/images/projects/ratepad.png',
+    technologies: ['Android', 'Kotlin'],
+    year: 2025,
+    sourceUrl: 'https://github.com/ilmarikyl/ratepad-android',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=com.ilmariware.currencyconverterwidget',
+    darkGradientStart: '#a5319d',
+  },
+  {
+    key: 'finnhopper',
+    image: '/images/projects/finnhopper.png',
+    technologies: [
+      'NextJS',
+      'TypeScript',
+      'Phaser',
+      'Tailwind',
+      'MongoDB',
+      'Supabase',
+      'Vercel',
+    ],
+    year: 2025,
+    liveUrl: 'https://finnhopper.fi',
+    darkGradientStart: '#1e5a84',
+  },
+  {
     key: 'semanttuli',
     image: '/images/projects/semanttuli.png',
     technologies: ['SvelteKit', 'Svelte', 'TypeScript', 'MongoDB', 'Tailwind'],

@@ -1,9 +1,20 @@
 {
   "view-live": "View Live",
+  "view-playstore": "Play Store",
   "view-source": "View Source",
   "view-image": "View full-size image",
   "more-info": "More Info",
   "less-info": "Less Info",
+  "ratepad": {
+    "title": "RatePad",
+    "description": "Android home screen widget for currency conversion with calculator-style interface. 31 currencies, 5 themes, offline support.",
+    "detailedInfo": "RatePad is a practical side project that I built after failing to find a currency converter widget for Android that matched my needs. Prior to this project, I had only very limited experience with Kotlin, so I used AI-assisted development tools to help bootstrap the codebase and speed up implementation. Through this project, I gained hands-on experience with Android widget development, background updates, offline-first design, and publishing an app on the Google Play Store. It lowered the barrier for me to take on more mobile-focused projects in the future."
+  },
+  "finnhopper": {
+    "title": "Finnhopper",
+    "description": "A browser-based platformer game that combines classic side-scrolling gameplay with word-building mechanics using the Finnish language.",
+    "detailedInfo": "Finnhopper is a playful side project where I built my own 2D platformer from scratch. The game mixes fast-paced platforming with Finnish word formation. This project was heavily AI-assisted: I used AI coding tools to speed up development and AI image generation to prototype the visual style, then refined and finalized the graphics manually. It was also my first hands-on experience with the Phaser game framework, which proved to be an enjoyable and flexible tool for building browser-based games."
+  },
   "semanttuli": {
     "title": "Semanttuli",
     "description": "Finnish version of the [Semantle](https://semantle.com) word guessing game. Also available as an Android app from [Google Play Store](https://play.google.com/store/apps/details?id=com.herokuapp.semanttuli.twa).",

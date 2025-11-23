@@ -1,9 +1,20 @@
 {
   "view-live": "Live-applikaatio",
+  "view-playstore": "Play Store",
   "view-source": "Lähdekoodi",
   "view-image": "Näytä kuva täydessä koossa",
   "more-info": "Lisätietoja",
   "less-info": "Piilota tiedot",
+  "ratepad": {
+    "title": "RatePad",
+    "description": "Androidin-widget reaaliaikaiseen valuutan muuntamiseen. Laskinmainen käyttöliittymä, offline-tuki ja kustomoitava ulkoasu.",
+    "detailedInfo": "RatePad on sivuprojekti, jonka rakensin itseäni varten, koska en löytänyt Androidille valuuttamuunnin-widgettiä, joka olisi vastannut tarpeitani. Ennen tätä projektia minulla ei juurikaan ollut kokemusta Kotlinista, joten hyödynsin paljon tekoälyavusteisia kehitystyökaluja codebasen luomiseen ja kehityksen nopeuttamiseen. Projektin kautta tuli paljon käytännön kokemusta Android-widgettien kehittämisestä, taustapäivityksistä, offline-first -suunnittelusta sekä sovelluksen julkaisemisesta Google Play -kaupassa. Kynnys toteuttaa mobiiliprojekteja myös jatkossa madaltui jonkin verran tämän projektin myötä."
+  },
+  "finnhopper": {
+    "title": "Finnhopper",
+    "description": "Selainpohjainen tasohyppelypeli, jossa yhdistyy klassinen side-scrollaus ja sanakikkailu.",
+    "detailedInfo": "Finnhopper on sivuprojekti, jossa kokeilin rakentaa oman 2D-tasohyppelypelin. Peli yhdistää nopeatempoisen tasohyppelyn ja suomenkielisten sanojen muodostamisen. Projekti oli vahvasti tekoälyavusteinen: käytin AI-pohjaisia koodaustyökaluja kehityksen nopeuttamiseen sekä tekoälyllä luotuja kuvia visuaalisen tyylin protoiluun, minkä jälkeen viimeistelin grafiikat käsin. Tämä oli myös ensimmäinen käytännön kokemukseni Phaserista, joka osoittautui melko miellyttäväksi ja joustavaksi työkaluksi selainpelien tekemiseen."
+  },
   "semanttuli": {
     "title": "Semanttuli",
     "description": "Suomenkielinen versio [Semantle](https://semantle.com)-sanapelistä. Saatavilla myös Android-sovelluksena [Google Play Storesta](https://play.google.com/store/apps/details?id=com.herokuapp.semanttuli.twa).",
