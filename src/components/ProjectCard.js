@@ -74,32 +74,47 @@ const ProjectCard = ({ project }) => {
               <TechnologyIcon key={tech} tech={tech} />
             ))}
           </div>
-          {project.liveUrl && (
-            <Link
-              href={project.liveUrl}
-              className="inline-flex items-center rounded bg-light-primary-hl px-2 py-1 text-xs text-white transition duration-300 hover:bg-red-600 dark:bg-blue-600 dark:hover:bg-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t('view-live')}
-              <FaExternalLinkAlt className="ml-1 h-3 w-3" />
-            </Link>
-          )}
+          <div className="flex gap-2">
+            {project.liveUrl && (
+              <Link
+                href={project.liveUrl}
+                className="inline-flex items-center rounded bg-light-primary-hl px-2 py-1 text-xs text-white transition duration-300 hover:bg-red-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('view-live')}
+                <FaExternalLinkAlt className="ml-1 h-3 w-3" />
+              </Link>
+            )}
+            {project.playStoreUrl && (
+              <Link
+                href={project.playStoreUrl}
+                className="inline-flex items-center rounded bg-light-primary-hl px-2 py-1 text-xs text-white transition duration-300 hover:bg-red-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('view-playstore')}
+                <FaExternalLinkAlt className="ml-1 h-3 w-3" />
+              </Link>
+            )}
+          </div>
         </div>
         <hr className="mb-4 border-gray-400 dark:border-gray-600" />
         <div className="flex items-center justify-between">
-          <Link
-            href={project.sourceUrl}
-            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t('view-source')}
-            <FaExternalLinkAlt className="ml-2 h-3 w-3" />
-          </Link>
+          {project.sourceUrl && (
+            <Link
+              href={project.sourceUrl}
+              className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('view-source')}
+              <FaExternalLinkAlt className="ml-2 h-3 w-3" />
+            </Link>
+          )}
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
+            className="ml-auto inline-flex items-center rounded bg-gray-600 px-4 py-2 text-xs text-white transition duration-300 hover:bg-gray-700"
             aria-expanded={showDetails}
             aria-controls={`details-${project.key}`}
             type="button"
