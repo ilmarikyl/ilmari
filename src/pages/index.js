@@ -42,7 +42,7 @@ const MoreInfoBtn = ({ t }) => (
       href="/about"
       className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-red-500 to-red-600 p-0.5 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:from-red-600 hover:to-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-gradient-to-br dark:from-green-600 dark:to-green-700 dark:hover:from-green-700 dark:hover:to-green-800 dark:focus:ring-green-800"
     >
-      <span className="relative flex items-center rounded-md px-5 py-2.5 transition-all duration-200 ease-in-out group-hover:bg-opacity-0">
+      <span className="relative flex items-center rounded-md px-5 py-2.5 transition-all duration-200 ease-in-out group-hover:bg-transparent">
         <span className="mr-2">{t('btn-more-about')}</span>
         <MdArrowForward className="h-5 w-5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
       </span>

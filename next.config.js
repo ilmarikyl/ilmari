@@ -12,13 +12,15 @@ const nextConfig = {
     defaultLocale: 'en',
     localeDetection: false,
   },
-  eslint: {
-    // Warning: 'true' allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
   },
   webpack: (config, { dev, isServer }) => {
-    // Configure SVGR for SVG imports
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],

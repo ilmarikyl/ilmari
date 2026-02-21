@@ -1,3 +1,25 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../pages/**/*.{js,ts,jsx,tsx}";
+@source "../components/**/*.{js,ts,jsx,tsx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-family-fraunces: 'Fraunces', serif;
+
+  --color-light-bg-start: hsl(216, 33%, 97%);
+  --color-light-bg-end: hsl(216, 33%, 79%);
+  --color-dark-bg-start: hsl(219, 58%, 10%);
+  --color-dark-bg-end: hsl(218, 58%, 38%);
+
+  --color-light-primary-hl: var(--color-red-500);
+  --color-dark-primary-hl: var(--color-yellow-200);
+
+  --backdrop-blur-xs: 2px;
+}
+
 @font-face {
   font-family: 'Fraunces';
   src: url('/fonts/fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf')
@@ -16,10 +38,6 @@
   font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   box-sizing: border-box;
 }
@@ -30,5 +48,6 @@ html {
 }
 
 body {
+  font-family: 'Fraunces', serif;
   overflow-x: hidden;
 }

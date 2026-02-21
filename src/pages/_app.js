@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import '../styles/globals.css'
-import { DefaultSeo } from 'next-seo'
+import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -17,34 +17,8 @@ function MyApp({ Component, pageProps, router }) {
   const seoDescription = isEnglish
     ? 'The portfolio website of Ilmari Kylliäinen'
     : 'Ilmari Kylliäinen - Portfolio'
-  // const siteUrl = 'https://ilmarikyl.github.io'
+  const siteUrl = 'https://ilmarikyl.github.io'
 
-  const seo = {
-    titleTemplate: `%s | ${seoName}`,
-    defaultTitle: seoSite,
-    description: seoDescription,
-    openGraph: {
-      title: seoName,
-      description: seoDescription,
-      type: 'website',
-      locale: locale,
-      url: 'ilmarikyl.github.io',
-      site_name: seoSite,
-      // TODO
-      // images: [
-      //   {
-      //     url: `${SITE_URL}/img/og-image-${locale}.png`,
-      //     width: 1201,
-      //     height: 630,
-      //     alt: seoSite,
-      //   },
-      // ],
-    },
-  }
-
-  /**
-   * Analytics Setup
-   */
   const gtagRouter = useRouter()
 
   useEffect(() => {
@@ -55,7 +29,16 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ThemeProvider attribute="class">
-      <DefaultSeo {...seo} />
+      <Head>
+        <title>{seoSite}</title>
+        <meta name="description" content={seoDescription} />
+        <meta property="og:title" content={seoName} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={locale} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:site_name" content={seoSite} />
+      </Head>
       <Component {...pageProps} />
     </ThemeProvider>
   )
