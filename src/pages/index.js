@@ -54,7 +54,7 @@ export default function Home() {
   const { t } = useTranslation('common')
 
   return (
-    <>
+    <div className="flex justify-center">
       <BackgroundAnimation />
       <Layout>
         <section className="flex grow items-center justify-center">
@@ -67,6 +67,6 @@ export default function Home() {
           </div>
         </section>
       </Layout>
-    </>
+    </div>
   )
 }

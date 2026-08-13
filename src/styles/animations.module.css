@@ -1,5 +1,32 @@
 /* Ash dots animation */
 
+.ashField {
+  position: absolute;
+  top: 0;
+  left: max(0px, calc(50% - 1000px));
+  width: 2000px;
+  height: 100%;
+}
+
+.ashVignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    hsl(216, 33%, 97%) 0%,
+    transparent 12%,
+    transparent 88%,
+    hsl(216, 33%, 79%) 100%
+  );
+}
+
+@media (max-width: 2000px) {
+  .ashVignette {
+    display: none;
+  }
+}
+
 .ashGroup {
   animation: ashRise 50s linear infinite;
   animation-delay: 0.25s;
