@@ -17,23 +17,25 @@ function PostPage({ post }) {
   if (!router.isFallback && !post?.slug) return 'ei löydy.'
 
   return (
-    <Layout>
-      <MDXRemote
-        {...post.content}
-        components={{
-          Stack,
-          SkillProgress,
-          ProjectsSection,
-          h1: H1,
-          h2: H2,
-          h3: H3,
-          p: P,
-          a: A,
-          li: LI,
-          wrapper: MDXContentWrapper,
-        }}
-      />
-    </Layout>
+    <div className="flex justify-center">
+      <Layout>
+        <MDXRemote
+          {...post.content}
+          components={{
+            Stack,
+            SkillProgress,
+            ProjectsSection,
+            h1: H1,
+            h2: H2,
+            h3: H3,
+            p: P,
+            a: A,
+            li: LI,
+            wrapper: MDXContentWrapper,
+          }}
+        />
+     </Layout>
+    </div>
   )
 }
 

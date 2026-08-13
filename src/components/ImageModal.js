@@ -3,21 +3,39 @@ import Image from 'next/image'
 import { createPortal } from 'react-dom'
 import useTranslation from 'next-translate/useTranslation'
 
+const INITIAL_SCALE = 1.5
+const MIN_SCALE = 1
+const MAX_SCALE = 4
+
 const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
   const { t } = useTranslation('common')
-  const [scale, setScale] = useState(1)
+  const [scale, setScale] = useState(INITIAL_SCALE)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
-  const imageContainerRef = useRef(null)
-  const lastTouchDistance = useRef(null)
+
+  const modalRef = useRef(null)
+  const scaleRef = useRef(INITIAL_SCALE)
+  const positionRef = useRef({ x: 0, y: 0 })
+  const isDraggingRef = useRef(false)
+  const dragStartRef = useRef({ x: 0, y: 0 })
+  const lastTouchDistanceRef = useRef(null)
+  const hasDraggedRef = useRef(false)
+
+  const resetView = () => {
+    scaleRef.current = INITIAL_SCALE
+    positionRef.current = { x: 0, y: 0 }
+    setScale(INITIAL_SCALE)
+    setPosition({ x: 0, y: 0 })
+    setIsDragging(false)
+    isDraggingRef.current = false
+    lastTouchDistanceRef.current = null
+    hasDraggedRef.current = false
+  }
 
   useEffect(() => {
     if (isOpen) {
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden'
-      setScale(1)
-      setPosition({ x: 0, y: 0 })
+      resetView()
     } else {
       document.body.style.overflow = 'unset'
     }
@@ -43,10 +61,9 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
     }
   }, [isOpen, onClose])
 
-  // Touch and wheel event handlers using native events with { passive: false }
   useEffect(() => {
-    const container = imageContainerRef.current
-    if (!container || !isOpen) return
+    const modal = modalRef.current
+    if (!modal || !isOpen) return
 
     const getTouchDistance = touches => {
       const dx = touches[0].clientX - touches[1].clientX
@@ -54,95 +71,121 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
       return Math.sqrt(dx * dx + dy * dy)
     }
 
+    const applyScale = newScale => {
+      const clampedScale = Math.min(Math.max(MIN_SCALE, newScale), MAX_SCALE)
+      scaleRef.current = clampedScale
+      setScale(clampedScale)
+
+      if (clampedScale === MIN_SCALE) {
+        positionRef.current = { x: 0, y: 0 }
+        setPosition({ x: 0, y: 0 })
+      }
+    }
+
     const handleTouchStart = e => {
       if (e.touches.length === 2) {
         e.preventDefault()
-        lastTouchDistance.current = getTouchDistance(e.touches)
-      } else if (e.touches.length === 1 && scale > 1) {
+        lastTouchDistanceRef.current = getTouchDistance(e.touches)
+      } else if (e.touches.length === 1 && scaleRef.current > MIN_SCALE) {
+        isDraggingRef.current = true
         setIsDragging(true)
-        setDragStart({
-          x: e.touches[0].clientX - position.x,
-          y: e.touches[0].clientY - position.y,
-        })
+        dragStartRef.current = {
+          x: e.touches[0].clientX - positionRef.current.x,
+          y: e.touches[0].clientY - positionRef.current.y,
+        }
       }
     }
 
     const handleTouchMove = e => {
       if (e.touches.length === 2) {
         e.preventDefault()
+        hasDraggedRef.current = true
         const currentDistance = getTouchDistance(e.touches)
-        if (lastTouchDistance.current) {
-          const delta = currentDistance - lastTouchDistance.current
-          const newScale = Math.min(Math.max(1, scale + delta * 0.01), 4)
-          setScale(newScale)
-
-          // Reset position if zooming out to 1
-          if (newScale === 1) {
-            setPosition({ x: 0, y: 0 })
-          }
+        if (lastTouchDistanceRef.current) {
+          const scaleFactor = currentDistance / lastTouchDistanceRef.current
+          applyScale(scaleRef.current * scaleFactor)
         }
-        lastTouchDistance.current = currentDistance
-      } else if (e.touches.length === 1 && isDragging && scale > 1) {
+        lastTouchDistanceRef.current = currentDistance
+      } else if (
+        e.touches.length === 1 &&
+        isDraggingRef.current &&
+        scaleRef.current > MIN_SCALE
+      ) {
         e.preventDefault()
-        setPosition({
-          x: e.touches[0].clientX - dragStart.x,
-          y: e.touches[0].clientY - dragStart.y,
-        })
+        hasDraggedRef.current = true
+        const newPosition = {
+          x: e.touches[0].clientX - dragStartRef.current.x,
+          y: e.touches[0].clientY - dragStartRef.current.y,
+        }
+        positionRef.current = newPosition
+        setPosition(newPosition)
       }
     }
 
     const handleTouchEnd = () => {
-      lastTouchDistance.current = null
+      lastTouchDistanceRef.current = null
+      isDraggingRef.current = false
       setIsDragging(false)
     }
 
     const handleWheel = e => {
       e.preventDefault()
-      const delta = e.deltaY * -0.001
-      const newScale = Math.min(Math.max(1, scale + delta), 4)
-      setScale(newScale)
+      hasDraggedRef.current = true
+      applyScale(scaleRef.current + e.deltaY * -0.001)
+    }
 
-      // Reset position if zooming out to 1
-      if (newScale === 1) {
-        setPosition({ x: 0, y: 0 })
+    const handleMouseDown = e => {
+      if (e.target.closest('button')) return
+      if (scaleRef.current > MIN_SCALE) {
+        isDraggingRef.current = true
+        setIsDragging(true)
+        dragStartRef.current = {
+          x: e.clientX - positionRef.current.x,
+          y: e.clientY - positionRef.current.y,
+        }
       }
     }
 
-    // Add native event listeners with { passive: false } to allow preventDefault
-    container.addEventListener('touchstart', handleTouchStart, {
-      passive: false,
-    })
-    container.addEventListener('touchmove', handleTouchMove, { passive: false })
-    container.addEventListener('touchend', handleTouchEnd)
-    container.addEventListener('wheel', handleWheel, { passive: false })
+    const handleMouseMove = e => {
+      if (isDraggingRef.current && scaleRef.current > MIN_SCALE) {
+        hasDraggedRef.current = true
+        const newPosition = {
+          x: e.clientX - dragStartRef.current.x,
+          y: e.clientY - dragStartRef.current.y,
+        }
+        positionRef.current = newPosition
+        setPosition(newPosition)
+      }
+    }
+
+    const handleMouseUp = () => {
+      isDraggingRef.current = false
+      setIsDragging(false)
+    }
+
+    modal.addEventListener('touchstart', handleTouchStart, { passive: false })
+    modal.addEventListener('touchmove', handleTouchMove, { passive: false })
+    modal.addEventListener('touchend', handleTouchEnd)
+    modal.addEventListener('wheel', handleWheel, { passive: false })
+    modal.addEventListener('mousedown', handleMouseDown)
+    modal.addEventListener('mousemove', handleMouseMove)
+    modal.addEventListener('mouseup', handleMouseUp)
+    modal.addEventListener('mouseleave', handleMouseUp)
 
     return () => {
-      container.removeEventListener('touchstart', handleTouchStart)
-      container.removeEventListener('touchmove', handleTouchMove)
-      container.removeEventListener('touchend', handleTouchEnd)
-      container.removeEventListener('wheel', handleWheel)
+      modal.removeEventListener('touchstart', handleTouchStart)
+      modal.removeEventListener('touchmove', handleTouchMove)
+      modal.removeEventListener('touchend', handleTouchEnd)
+      modal.removeEventListener('wheel', handleWheel)
+      modal.removeEventListener('mousedown', handleMouseDown)
+      modal.removeEventListener('mousemove', handleMouseMove)
+      modal.removeEventListener('mouseup', handleMouseUp)
+      modal.removeEventListener('mouseleave', handleMouseUp)
     }
-  }, [isOpen, scale, isDragging, position, dragStart])
-
-  const handleMouseDown = e => {
-    if (scale > 1) {
-      setIsDragging(true)
-      setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y })
-    }
-  }
-
-  const handleMouseMove = e => {
-    if (isDragging && scale > 1) {
-      setPosition({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y })
-    }
-  }
-
-  const handleMouseUp = () => {
-    setIsDragging(false)
-  }
+  }, [isOpen])
 
   const handleBackdropClick = e => {
-    if (e.target === e.currentTarget) {
+    if (e.target === e.currentTarget && !hasDraggedRef.current) {
       onClose()
     }
   }
@@ -151,16 +194,16 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
 
   const modalContent = (
     <div
+      ref={modalRef}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
       onClick={handleBackdropClick}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
+      style={{ touchAction: 'none' }}
     >
-      {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white/20"
+        className="absolute right-4 top-4 z-20 rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white/20"
         aria-label="Close modal"
+        type="button"
       >
         <svg
           className="h-6 w-6"
@@ -175,42 +218,25 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
         </svg>
       </button>
 
-      {/* Zoom indicator */}
-      {scale > 1 && (
-        <div className="absolute left-4 top-4 z-10 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
+      {scale > MIN_SCALE && (
+        <div className="absolute left-4 top-4 z-20 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
           {Math.round(scale * 100)}%
         </div>
       )}
 
-      {/* Image container with fading borders */}
-      <div
-        ref={imageContainerRef}
-        className="relative mx-4 max-h-[90vh] max-w-[90vw] overflow-hidden"
-        onMouseDown={handleMouseDown}
-        style={{
-          cursor: scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default',
-          touchAction: 'none',
-        }}
-      >
-        {/* Fading border effect - top */}
-        <div className="pointer-events-none absolute left-0 right-0 top-0 z-10 h-20 bg-gradient-to-b from-black/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
+        <div className="absolute left-0 right-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 top-0 w-20 bg-gradient-to-r from-black/50 to-transparent" />
+        <div className="absolute bottom-0 right-0 top-0 w-20 bg-gradient-to-l from-black/50 to-transparent" />
+      </div>
 
-        {/* Fading border effect - bottom */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-20 bg-gradient-to-t from-black/50 to-transparent" />
-
-        {/* Fading border effect - left */}
-        <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-20 bg-gradient-to-r from-black/50 to-transparent" />
-
-        {/* Fading border effect - right */}
-        <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-20 bg-gradient-to-l from-black/50 to-transparent" />
-
-        {/* Image */}
+      <div className="relative z-0 flex max-h-full max-w-full items-center justify-center p-4">
         <div
-          className="relative transition-transform duration-200 ease-out"
+          className="relative will-change-transform"
           style={{
-            transform: `scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
-            minWidth: '300px',
-            minHeight: '300px',
+            transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
+            cursor: scale > MIN_SCALE ? (isDragging ? 'grabbing' : 'grab') : 'default',
           }}
         >
           <Image
@@ -218,14 +244,14 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
             alt={imageAlt}
             width={1200}
             height={800}
-            className="h-auto max-h-[90vh] w-auto max-w-[90vw] object-contain"
+            className="h-auto max-h-[95vh] w-auto max-w-[95vw] select-none object-contain"
             priority
+            draggable={false}
           />
         </div>
       </div>
 
-      {/* Instructions */}
-      <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/10 px-4 py-2 text-xs text-white/70 backdrop-blur-sm">
+      <div className="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/10 px-4 py-2 text-xs text-white/70 backdrop-blur-sm">
         <span className="hidden md:inline">
           {t('image-modal.scroll-to-zoom')} • {t('image-modal.drag-to-pan')}{' '}
           •{' '}
@@ -236,7 +262,6 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt }) => {
     </div>
   )
 
-  // Use portal to render modal at the root level
   return typeof document !== 'undefined'
     ? createPortal(modalContent, document.body)
     : null
